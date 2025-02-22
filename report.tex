@@ -1,0 +1,72 @@
+\documentclass{article}
+\usepackage{graphicx}
+\usepackage{geometry}
+\geometry{a4paper, margin=1in}
+\usepackage{setspace}
+\onehalfspacing
+
+\begin{document}
+
+\title{Data Wrangling and Descriptive Statistics Report}
+\author{}
+\date{}
+\maketitle
+
+\section{Introduction}
+This report presents the exploration, cleaning, feature engineering, and analysis of a dataset obtained from Kaggle by handling missing values, identifying outliers, engineering features, and visualizing key trends.
+
+\section{Data Exploration and Cleaning}
+
+\subsection{Dataset Overview}
+The dataset includes both numerical and categorical variables. The structure of the dataset was examined using .info(), .describe(), and .head() functions. The dataset contains missing values and potential outliers that required preprocessing.
+
+\subsection{Handling Missing Values}
+\begin{itemize}
+    \item Numerical columns: Missing values were interpolated.
+    \item Categorical columns: Missing values were replaced with the most frequent category (mode).
+    \item Columns with more than 50\% missing values were dropped.
+\end{itemize}
+
+\subsection{Outlier Detection and Removal}
+Outliers were identified using the Interquartile Range (IQR) method. Extreme values lying outside 1.5 times the IQR were removed to improve data consistency.
+
+\section{Feature Engineering and Descriptive Statistics}
+
+\subsection{Feature Engineering}
+\begin{itemize}\item{Binning Continuous Variables}
+The \texttt{Distance\_km} column was transformed into a categorical variable by binning its values into three distinct categories: low, medium, and high distances. This approach simplifies the interpretation of continuous data and helps capture non-linear relationships.
+
+\item{Encoding Categorical Variables}
+The categorical column \texttt{Weather} was processed using one-hot encoding to convert it into a binary matrix format. This transformation ensures that the model can interpret categorical data effectively without assuming any ordinal relationship between the categories.\end{itemize}
+
+\subsection{Descriptive Statistics}
+\begin{itemize}
+    \item Mean, median, and standard deviation were calculated for numerical variables.
+    \item Frequency counts were determined for categorical variables.
+\end{itemize}
+
+\section{Data Visualization and Analysis}
+
+\subsection{Visualization of Distributions}
+\begin{itemize}
+    \item Histograms and box plots were used to visualize numerical distributions and detect outliers.
+    \item Bar plots were used to display the frequency distribution of categorical variables.
+\end{itemize}
+
+\subsection{Pairwise Relationships}
+\begin{itemize}
+    \item A pairplot was generated to explore relationships between numerical variables.
+    \item Scatter plots were used to identify correlations and trends.
+\end{itemize}
+
+\section{Key Insights}
+\begin{itemize}
+    \item Higher distances generally lead to longer delivery times.
+    \item Traffic levels significantly impact delivery time.
+    \item Weather conditions influence vehicle type selection and overall delivery efficiency.
+\end{itemize}
+
+\section{Conclusion}
+The data wrangling process improved the dataset’s quality by handling missing values, removing outliers, and engineering relevant features. The descriptive statistics and visualizations revealed important trends and relationships in the data, which can be further used for predictive modeling.
+
+\end{document}
